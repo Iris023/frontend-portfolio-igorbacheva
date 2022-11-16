@@ -154,7 +154,7 @@ body{
     height: 400px;
     border-radius: 0 0 100% 0;
     background-color: #cc2269;
-    z-index: 900;
+    z-index: 800;
     transform: scale(0);
     transform-origin: top left;
 }
