@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio of Irina Gorbacheva</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mask">
+        <div class="loader"></div>
+    </div>
+    <div class="toggleBtn">
+        <img class="menu-icon" src="src/menu.png" alt="menu-icon">
+        <img class="close-icon" src="src/close.png" alt="close-icon">
+    </div>
+    <div class="menu">
+        <nav>
+            <ul>
+                <li><a class="menu_link" href="#">Обо мне</a></li>
+                <li><a class="menu_link" href="#certificates">Сертификаты</a></li>
+                <li><a class="menu_link" href="#projects">Проекты</a></li>
+                <li><a class="menu_link" href="#contactMe">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="frontPage">
+        <div class="row">
+            <img src="src/i2.jpg" height="250px" alt="myPhoto">
+            <h1 class="heading_name"><i class="logo fas fa-laptop-code"></i>Ирина <br> Горбачева</h1>
+        </div>
+        <p class="front-text">Начинающий фронтeнд разработчик</p>
+        <p class="skills first">Верстка адаптивных веб-сайтов с использованием CSS, Flexbox, BootStrap</p>
+        <p class="skills second">Разрабатка интерактивных веб-сайтов и приложений с помощью JavaScript</p>
+        <p class="skills third">В данный момент изучаю React и Node JS</p>
+        <div class="use">
+            <span class="react"><i class="fab fa-brands fa-react"></i>React</span>
+            <span class="node"><i class="fab fa-brands fa-node-js"></i>Node JS</span>
+            <span class="html"><i class="fab fa-html5"></i>HTML</span>
+            <span class="css"><i class="fab fa-css3-alt"></i></i>CSS</span>
+            <span class="bs"><i class="fab fa-bootstrap"></i></i>BootStrap</span>
+            <span class="js"><i class="fab fa-js-square"></i>JavaScript</span>
+            <span class="figma"><i class="fab fa-figma"></i>Figma</span>
+        </div>
+    </div> 
+
+<section id="certificates">
+    <div class="certificates" data-carousel>
+        <h1 class="cert_heading">Мои сертификаты</h1>
+        <div class="carousel">
+            <button class="carousel-button cert_prev_btn" data-carousel-button="cert_prev_btn">&#10174</button>
+            <ul data-slides>
+                <li class="cert_slide" data-active>
+                    <img class="cert" src="src/html_css.webp" alt="Certificate Image #1">
+                </li>
+                <li class="cert_slide">
+                    <img class="cert" src="src/bs.webp" alt="Certificate Image #2">
+                </li>
+                <li class="cert_slide">
+                    <img class="cert" src="src/frontend.webp" alt="Certificate Image #3">
+                </li>
+                <li class="cert_slide">
+                    <img class="cert" src="src/figma_gsap.webp" alt="Certificate Image #4">
+                </li>
+            </ul>
+            <button class="carousel-button cert_next_btn" data-carousel-button="cert_next_btn">&#10174</button>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects">
+    <div class="container"> 
+        <h1 class="projects_heading">Мои проекты</h1>
+                <div class="slider">
+                    <div class="box1 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Сколько дней до рождества?</h2>
+                            <p class="descr">Обратный отсчет до определенной даты, проигрывание/пауза тематической песни при нажатии на кнопки, добавлена анимация</p>
+                            <p class="descr">HTML/CSS/JS/GSAP</p>
+                            <a href="https://countdown-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/santa.mp4" type="video/mp4">
+                            </video>
+                        </div>               
+                    </div>
+
+                    <div class="box2 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Игра "Угадай число"</h2>
+                            <p class="descr">Сгенерированно число от 1 до 20, необходимо угадать его за 5 попыток</p>
+                            <p class="descr">HTML/CSS/JS</p>
+                            <a href="https://guessthenumber-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/guess.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div>
+
+                    <div class="box3 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Таймер доставки пиццы</h2>
+                            <p class="descr">Функция обратного отсчета, при нажатии на текст включается приятная мелодия ожидания, по окончании таймера можно отправить письмо с автоматическим текстом</p>
+                            <p class="descr">HTML/CSS/JS/GSAP</p>
+                            <a href="https://delivery-timer-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/pizza.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div>  
+
+                    <div class="box4 box fade"> 
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Тест на знания правил дорожного движения</h2>
+                            <p class="descr">Тест с подсчетом правильных ответов</p>
+                            <p class="descr">HTML/CSS/JS/GSAP</p>
+                            <a href="https://pdd-rules-igorbacheva.glitch.me" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/pdd.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div>                               
+                    
+                    <div class="box5 box fade"> 
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Мебельный магазин</h2>
+                            <p class="descr">Для визуализации слайдов используется Flexbox, для отправки формы Formspree</p>
+                            <p class="descr">HTML/CSS/JS</p>
+                            <a href="https://furnitureshop-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/furniture.mp4" type="video/mp4">
+                            </video>              
+                        </div> 
+                    </div>
+
+                    <div class="box6 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Прогноз погоды</h2>
+                            <p class="descr">Прогноз погоды в режиме реального времени</p>
+                            <p class="descr">HTML/CSS/JS/API/GSAP</p>
+                            <a href="https://forecast-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/forecast.mp4" type="video/mp4">
+                            </video>
+                        </div>  
+                    </div>  
+                    
+                    <div class="box7 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Сайт услуг визажиста</h2>
+                            <p class="descr">Создала сайт для реального визажиста</p>
+                            <p class="descr">HTML/CSS/BootStrap</p>
+                            <a href="https://kalinceva-mua.glitch.me" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/mua.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div> 
+                            
+                    <div class="box8 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Сайт ресторана индийской кухни</h2>
+                            <p class="descr">Создала макет в Figma, затем сверстала на его основе сайт</p>
+                            <p class="descr">HTML/CSS/Figma</p>
+                            <a href="https://indianfood-figma-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/figma.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div> 
+
+                    <div class="box9 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Расчет стоимости</h2>
+                            <p class="descr">Посчитает затраты на проживание в отеле в зависимости от выбранных параметров отдыха</p>
+                            <p class="descr">HTML/CSS/JS</p>
+                            <a href="https://hotelcost-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/hotel.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div> 
+
+                    <div class="box10 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Медитации</h2>
+                            <p class="descr">Запуск кнопкой видео и аудио соответсвующей тематики, а так же обратного отсчета</p>
+                            <p class="descr">HTML/CSS/JS</p>
+                            <a href="https://meditations-js-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/meditations.mp4" type="video/mp4">
+                            </video>              
+                        </div> 
+                    </div> 
+
+                    <div class="box11 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Топ 10 мест в Европе</h2>
+                            <p class="descr">Проект на React. </p>
+                            <p class="descr">HTML/CSS/JS/React</p>
+                            <a href="https://react5-top10places-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/top10.mp4" type="video/mp4">
+                            </video>
+                        </div> 
+                    </div> 
+
+                    <div class="box12 box fade">
+                        <div class="bg"></div>
+                        <div class="details">
+                            <h2>Магазин жеского белья</h2>
+                            <p class="descr">Проект на React. React Router, фильтрация товаров по категориям... Проект на React. React Router, фильтрация товаров по категориям...Проект на React. React Router, фильтрация товаров по категориям...</p>
+                            <p class="descr">HTML/CSS/JS/React</p>
+                            <a href="https://react-w6-onlineshoping-igorbacheva.netlify.app" target="_blank">
+                                <button class="btn">Перейти</button>
+                            </a>
+                        </div>
+                        <div class="showVideo">
+                            <video autoplay muted loop playsinline>
+                                <source src="final_projects/onlinevs.mp4" type="video/mp4">
+                            </video>              
+                        </div> 
+                    </div> 
+
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="prev" width="56.898" height="91" viewBox="0 0 56.898 91"><path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(0 91) rotate(-90)" fill="#fff"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="next" width="56.898" height="91" viewBox="0 0 56.898 91"><path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(56.898) rotate(90)" fill="#fff"/></svg>
+                    <div class="dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+    </div>   
+</section>
+
+<section id="contactMe">
+    <div class="contacts">
+        <h3 class="contact_heading">Связаться со мной</h3>
+        <div class="contactLinks">
+            <a class="contact_link" href="mailto:i.gorbacheva023@gmail.com"><i class="fa fa-envelope" id="mail"></i></a>
+            <a class="contact_link" href="tel:+79251121559"><i class="fa fa-volume-control-phone" id="tel"></i></a>
+            <a class="contact_link" href="https://telegram.me/Iris023" target="blank"><i class="fa fa-telegram" id="telegram"></i></a>
+            <a class="contact_link" href="https://glitch.com/@i.gorbacheva023"><i class="fas fa-laptop-code" id="glitch"></i></a>
+        </div>
+        <p class="last">© Irina Gorbacheva</p>
+    </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.1/CSSRulePlugin.min.js"></script>
+    
+<script src="https://kit.fontawesome.com/a6536c4a19.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
