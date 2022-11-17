@@ -5,9 +5,28 @@ document.addEventListener('DOMContentLoaded', ()=> {
         mask.remove();
     }, 600)
 
+
+    window.addEventListener('scroll', reveal);
+    function reveal() {
+        let reveals = document.querySelectorAll(".reveal");
+        for(let i=0; i< reveals.length; i++) {
+            let windowHeight = window.innerHeight;
+            let revealTop = reveals[i].getBoundingClientRect().top;
+            let revealPoint = 150;
+
+            if (revealTop < windowHeight - revealPoint) {
+                reveals[i].classList.add( 'triggered')
+            }
+            else {
+                reveals[i].classList.remove( 'triggered')
+
+            }
+        }
+    }
+
+
     const toggleBtn = document.querySelector(".toggleBtn");
     const menu = document.querySelector(".menu");
-
     // Menu animation
     const tlMenu = new TimelineMax({paused: true});
     tlMenu.to(".menu-icon", 0.6, {
@@ -53,20 +72,54 @@ document.addEventListener('DOMContentLoaded', ()=> {
             })
 
 
+
     //FRONT_PAGE ANIMATION
-    gsap.from(".frontPage > *", 2, {
+    gsap.from(".about > *", 2, {
         opacity: 0,
         duration: 1.5, 
         stagger: 0.6
     })
-    gsap.from(".toggleBtn", 1, {
-        x: -150,
-        y: -150,
-        duration: 3.5,
-        delay: 4.2, 
+    gsap.to(".toggleBtn", 1, {
+        x: 0,
+        y: 0,
+        duration: .5,
+        delay: 4.2,
+        opacity: 1 
     })
 
-    //Skills Timeline Animation
+
+    // if (window.innerWidth <= 1024){ 
+
+    //     gsap.to(".first", {
+    //         delay: .5,
+    //         opacity: 1,
+    //         duration: 2.5,
+    //         scrollTrigger: {
+    //             triiger: ".first",
+    //             start: "top center"
+    //         }
+    //     })
+    //     gsap.to(".second", {
+    //         delay: .5,
+    //         opacity: 1,
+    //         duration: 2.5,
+    //         scrollTrigger: {
+    //             triiger: ".second",
+    //             start: "top center"
+    //         }
+    //     })
+    //     gsap.to(".third", {
+    //         delay: .5,
+    //         opacity: 1,
+    //         duration: 2.5,
+    //         scrollTrigger: {
+    //             triiger: ".third",
+    //             start: "top center"
+    //         }
+    //     })    
+    // }
+
+
     let skillsTl = gsap.timeline({repeat: -1});
     function skillsAnimation(){
         gsap.set(".use", {autoAlpha: 1, delay: 4.2})
@@ -76,11 +129,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     skillsAnimation();
 
 
-    
 
-    // CERT ANIMATION
+
     const cert_buttons = document.querySelectorAll("[data-carousel-button]")
-
     cert_buttons.forEach(button => {
     button.addEventListener("click", () => {
         const offset = button.dataset.carouselButton === "next" ? 1 : -1
@@ -101,74 +152,43 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
-    
-
-
-
-
-
-
-    const tl = gsap.timeline({defaults: {duration: .6, ease: "power2.inOut"}})
-    tl.from(".bg", {x: "-100%", opacity: 0})
+    const slide_tl = gsap.timeline({defaults: {duration: .6, ease: "power2.inOut"}})
+    slide_tl.from(".bg", {x: "-100%", opacity: 0})
     .from(".descr", {opacity: 0}, "-=0.3")
     .from("h2", {opacity: 0, y: "30px"}, "-=0.3")
     .from(".btn", {opacity: 0, y: "-40px"}, "-=0.8")
-
-    // function to restart animation
-    const animate = () => tl.restart()
+    const slide_animate = () => slide_tl.restart();
 
 
 
 
 
-
-    const slider = document.querySelector(".slider")
-
-
-    let projectSlides = document.querySelectorAll(".box");
+    const projectSlides = document.querySelectorAll(".box");
     const dots = document.querySelectorAll(".dot");
-
-    const prev = document.querySelector(".prev");
-    const next = document.querySelector(".next");
-
-    prev.addEventListener("click", (n) => {
-        plusSlides(-1);
-        animate();
-        
-
-    })
-
-    next.addEventListener("click", (n) => {
-        plusSlides(1);
-        animate();
-
-        console.log(currentSlide)
-    })
-
-    
-
     let slideIndex = 1;
-    showSlides(slideIndex);
 
+    dots.forEach( (dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            slideIndex = dotIndex+1;
+            showSlides(slideIndex);
+            slide_animate();
+        })
+    })
+
+    showSlides(slideIndex);
 
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
     function showSlides(n) {
-
-        let i;
-
         if (n > projectSlides.length) {
             slideIndex = 1
         }
         if (n < 1) {
             slideIndex = projectSlides.length
         }
+        
 
         for (i=0; i < projectSlides.length; i++) {
             projectSlides[i].style.display = "none"
@@ -176,14 +196,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
         for (i=0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
-            dots[i].addEventListener("click", () => {
-
-                // НЕ РАБОТАЕТ ПЕРЕКЛЮЧЕНИЕ slidов на DOTS
-                currentSlide(slideIndex);
-            })
         }
 
         projectSlides[slideIndex-1].style.display = "flex";
         dots[slideIndex-1].className += " active";
     }
+
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+
+    prev.addEventListener("click", (n) => {
+        plusSlides(-1);
+        slide_animate();
+    })
+
+    next.addEventListener("click", (n) => {
+        plusSlides(1);
+        slide_animate();
+    })
+
+
 })
