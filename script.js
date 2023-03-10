@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
             }
             else {
                 reveals[i].classList.remove( 'triggered')
-
             }
         }
     }
@@ -27,6 +26,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     const toggleBtn = document.querySelector(".toggleBtn");
     const menu = document.querySelector(".menu");
+
     // Menu animation
     const tlMenu = new TimelineMax({paused: true});
     tlMenu.to(".menu-icon", 0.6, {
@@ -131,37 +131,61 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
-    const cert_buttons = document.querySelectorAll("[data-carousel-button]")
-    cert_buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const offset = button.dataset.carouselButton === "next" ? 1 : -1
-        const slides = button
-        .closest("[data-carousel]")
-        .querySelector("[data-slides]")
+    //CERTIFICATES SLIDER
+    setInterval(showCertSlides, 5000);
+    const cert_prev_btn = document.querySelector(".cert_prev_btn");
+    const cert_next_btn = document.querySelector(".cert_next_btn");
+    const cert_slides = document.querySelectorAll(".cert_slide");        
+    let certIndex = 1;
 
-        const activeSlide = slides.querySelector("[data-active]")
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset
-        if (newIndex < 0) newIndex = slides.children.length - 1
-        if (newIndex >= slides.children.length) newIndex = 0
+    function showCertSlides(n) {
+        if (n > cert_slides.length) {
+            certIndex = 1;
+        }
+        if (n < 1) {
+            certIndex = cert_slides.length;
+        }
+        for (i = 0; i < cert_slides.length; i++) {
+            cert_slides[i].style.display = "none";
+        }
+        cert_slides[certIndex-1].style.display = "flex";
+        function changeCertSlide() {
+            certIndex++;
+            if (certIndex > cert_slides.length) {
+                    certIndex = 1;
+                }
+            }
+        setInterval(changeCertSlide, 1000);
+    }
 
-        slides.children[newIndex].dataset.active = true
-        delete activeSlide.dataset.active
+    function nextCert(n) {            
+        showCertSlides(certIndex +=n)
+    }
+
+    cert_prev_btn.addEventListener('click', (n) => {
+        nextCert(-1);
     })
+    
+    cert_next_btn.addEventListener('click', (n) => {
+        nextCert(1);
     })
+    
+
+    showCertSlides();
 
 
 
 
+
+
+
+//PROJECTS SLIDER
     const slide_tl = gsap.timeline({defaults: {duration: .6, ease: "power2.inOut"}})
     slide_tl.from(".bg", {x: "-100%", opacity: 0})
     .from(".descr", {opacity: 0}, "-=0.3")
     .from("h2", {opacity: 0, y: "30px"}, "-=0.3")
     .from(".btn", {opacity: 0, y: "-40px"}, "-=0.8")
     const slide_animate = () => slide_tl.restart();
-
-
-
-
 
     const projectSlides = document.querySelectorAll(".box");
     const dots = document.querySelectorAll(".dot");
@@ -214,6 +238,4 @@ document.addEventListener('DOMContentLoaded', ()=> {
         plusSlides(1);
         slide_animate();
     })
-
-
 })

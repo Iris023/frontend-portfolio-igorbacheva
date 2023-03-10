@@ -96,7 +96,6 @@ body{
     font-size: 22px;
     margin-bottom: -10px;
     padding: 0 30px 0 30px;
-    /* opacity: 0; */
 }
 
 .use {
@@ -234,7 +233,7 @@ nav ul li {
     margin-bottom: -10px;
 }
 
-.carousel {
+.slider_cert {
     position: relative;
     width: 500px;
     display: flex;
@@ -243,7 +242,7 @@ nav ul li {
     height: 500px;
 }
 
-.carousel > ul {
+.cert_slides {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -256,22 +255,16 @@ nav ul li {
     justify-content: center;
     align-items: center;
     inset: 0;
-    opacity: 0;
     transition: 200ms opacity ease-in-out;
     transition-delay: 200ms;
 }
 
-.cert_slide[data-active] {
-    opacity: 1;
-    z-index: 100;
-    transition-delay: 0ms;
+
+.cert_img {
+    width: 100%;
 }
 
-.cert {
-    width: 100%
-}
-
-.carousel-button {
+.slider_cert_button {
     position: absolute;
     z-index: 200;
     background: none;
@@ -284,22 +277,22 @@ nav ul li {
     background-color: rgba(0, 0, 0, .1);
 }
 
-.carousel-button:hover,
-.carousel-button:focus {
+.slider_cert_button:hover,
+.slider_cert_button:focus {
     color: white;
     background-color: rgba(0, 0, 0, .2);
 }
 
-.carousel-button:focus {
+.slider_cert_button:focus {
     outline: 1px solid black;
 }
 
-.carousel-button.cert_prev_btn {
+.slider_cert_button.cert_prev_btn {
     transform: rotate(180deg);
     left: -25%;
 }
 
-.carousel-button.cert_next_btn {
+.slider_cert_button.cert_next_btn {
     right: -25%;
 }
 
